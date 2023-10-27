@@ -15,11 +15,7 @@ const index = () => {
     const [endereco, setEndereco] = useState('')
     const [experiencia, setExperiencia] = useState('')
     const [cursos, setCursos] = useState('')
-   
-
-    const onFinish = (values) => {
-      console.log('Received values of form:', values);
-    };
+  
 
     console.log(endereco);
     return (
@@ -27,43 +23,7 @@ const index = () => {
             <h1 className='bg-primary m-0'>GERADOR DE CURRICULOS QUE COM FÉ EM DEUS VAI DAR CERTO !!!!!!</h1>
            <Navbar/>
             <Container>
-                <Row>
-                    <Col md={4}>
-                      <SlidingCard/>
-                        <Rate />
-                    </Col>
-                    <Col md={8}>
-                        <Card>
-
-                            <Form.Item >
-                                <Input
-                                    value={nome}
-                                    placeholder='Nome'
-                                />
-                            </Form.Item>
-                            <Form.Item >
-                                <Input
-                                    value={endereco}
-                                    placeholder='Endereço'
-                                />
-                            </Form.Item>
-                            <Form.Item >
-                                <Input
-                                    value={experiencia}
-                                  placeholder='Experiência'
-                                />
-                            </Form.Item>
-                            <Form.Item >
-                                <Input
-                                    value={cursos}
-                                    placeholder='Cursos'
-                                />
-                            </Form.Item>
-                            
-                            <Button icon={<FolderOutlined />} onClick={Teste}>Visualizar em PDF</Button>
-                        </Card>
-                    </Col>
-                </Row>
+              <SlidingCard/>
             </Container>
         </>
     )

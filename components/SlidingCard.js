@@ -1,35 +1,39 @@
-import { Button, Card, Form, Input } from 'antd';
+import { FolderOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Card, Form, Input, Rate } from 'antd';
 import React, { useState } from 'react'
+import { Col, Row } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Teste from './Teste';
 
 const formItemLayout = {
     labelCol: {
-      xs: {
-          span: 24,
+        xs: {
+            span: 24,
         },
         sm: {
             span: 4,
         },
     },
     wrapperCol: {
-      xs: {
-          span: 24,
+        xs: {
+            span: 24,
         },
         sm: {
             span: 20,
         },
     },
-  };
-  const formItemLayoutWithOutLabel = {
+};
+const formItemLayoutWithOutLabel = {
     wrapperCol: {
-      xs: {
-        span: 24,
-        offset: 0,
+        xs: {
+            span: 24,
+            offset: 0,
+        },
+        sm: {
+            span: 20,
+            offset: 4,
+        },
     },
-    sm: {
-        span: 20,
-        offset: 4,
-    },
-},
 };
 
 const SlidingCard = () => {
@@ -45,8 +49,8 @@ const SlidingCard = () => {
 
     const onFinish = (values) => {
         console.log('Received values of form:', values);
-      };
-  
+    };
+
 
     const tabList = [
         {
@@ -183,16 +187,53 @@ const SlidingCard = () => {
 
     return (
         <>
-            <Card
+            <Row>
+                <Col md={4}>
+                    <Card
 
-                title="Insira seus dados para gerar o curriculo"
-                extra={<a href="#">DICAS</a>}
-                tabList={tabList}
-                activeTabKey={activeTabKey1}
-                onTabChange={onTab1Change}
-            >
-                {contentList[activeTabKey1]}
-            </Card>
+                        title="Insira seus dados para gerar o curriculo"
+                        extra={<a href="#">DICAS</a>}
+                        tabList={tabList}
+                        activeTabKey={activeTabKey1}
+                        onTabChange={onTab1Change}
+                    >
+                        {contentList[activeTabKey1]}
+                    </Card>
+
+                    <Rate />
+                </Col>
+                <Col md={8}>
+                    <Card>
+
+                        <Form.Item >
+                            <Input
+                                value={nome}
+                                placeholder='Nome'
+                            />
+                        </Form.Item>
+                        <Form.Item >
+                            <Input
+                                value={endereco}
+                                placeholder='Endereço'
+                            />
+                        </Form.Item>
+                        <Form.Item >
+                            <Input
+                                value={experiencia}
+                                placeholder='Experiência'
+                            />
+                        </Form.Item>
+                        <Form.Item >
+                            <Input
+                                value={cursos}
+                                placeholder='Cursos'
+                            />
+                        </Form.Item>
+
+                        <Button icon={<FolderOutlined />} onClick={Teste}>Visualizar em PDF</Button>
+                    </Card>
+                </Col>
+            </Row>
         </>
     )
 }
